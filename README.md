@@ -1,34 +1,45 @@
-# pycarwings2
-Library for connecting and interacting with Nissan's CARWINGS service for Nissan LEAF cars.
-Uses the (newly secure!) REST/JSON API rather than the previous XML-based API.
 
-Inspired by original pycarwings library: https://github.com/haykinson/pycarwings
+## Install
 
-# asynchronous methods
+- Raspberry pi with emoncms image
+- pip install git+https://github.com/apreb/pycarwings2.git
+- pip install paho-mqtt
+- [TODO] Node-RED Flows to control Carwings
 
-Note that several of the most interesting methods in the CARWINGS service are
-asynchronous--you ask the service to do something, and it just says "ok". You then
-have to poll a corresponding method to find out if the operation was successful.
 
-More details are located at the top of [pycarwings2.py](https://github.com/jdhorne/pycarwings2/blob/master/pycarwings2/pycarwings2.py).
-# Installation
-pip install git+https://github.com/jdhorne/pycarwings2.git
+## Using
 
-# example usage
+- Grab the files in the exemples directory and place them on /home/pi 
+- perform chmod +x carwings.py
+- change mqtt settings in the carwings.ini file
+- execute carwings.py
 
-exemples/get-leaf-info.py
+```
+root@emonpi(rw):pi# ./carwings.py 
 
-# license
-Copyright 2016 Jason Horne
+Invalid operand, please check below
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
 
-http://www.apache.org/licenses/LICENSE-2.0
+usage:
+       carwings.py [user] [password] [action]
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+[user]     - carwings username
+[password] - carwings password
+[action]
+   - battlaststaus          - Request Last Status
+   - battupdate             - Request Update
+   - climateupdate          - Request Climate Update
+   - climatestart           - Request Climate Start
+   - climatestop            - Request Climate Stop
+   - chargestart            - Request Charge Start
+   - RateSimulation YYYYMM  - Request RateSimulation
+   - driveanalysis          - Request driveanalysis
+root@emonpi(ro):pi# 
+```
+
+
+
+## credits
+- https://github.com/jdhorne/pycarwings2
+- https://github.com/glynhudson/leaf-python-mqtt
+- https://github.com/emoncms
