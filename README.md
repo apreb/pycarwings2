@@ -1,9 +1,15 @@
+## Description
+
+This is yet another way of controlling carwings. The python script serves as middleware to communicate with carwings. A set of node-red flows take care of user interface and may easily serve future rule deployment to request updates based on external events.
+
+At the moment my personal implementation updates carwings automatically only when receiving carwings emails and avoid useless periodic updates that can hurt Nissan and/or the car's already poor management of the 12V battery.
+
 
 ## Install
 
 - Raspberry pi with emoncms image
-- pip install git+https://github.com/apreb/pycarwings2.git
-- pip install paho-mqtt
+- ```pip install git+https://github.com/apreb/pycarwings2.git```
+- ```pip install paho-mqtt```
 - [TODO] Node-RED Flows to control Carwings
 
 
