@@ -2,6 +2,7 @@
 
 import pycarwings2
 import time
+import datetime
 from ConfigParser import SafeConfigParser
 import logging
 import sys
@@ -113,6 +114,8 @@ elif action == 'driveanalysis':
 elif action == 'RateSimulation':
   leaf_info = l.get_electric_rate_simulation(tdate)
   client.publish(mqtt_status_topic + "/json/rate/" + tdate, json.dumps(leaf_info.answer) ,qos=0, retain=True)
+  if datetime.datetime.now().strftime("%Y%m") == tdate:
+    client.publish(mqtt_status_topic + "/json/rate/latest", json.dumps(leaf_info.answer) ,qos=0, retain=True)
 
 elif action == 'getlatlon':
   leaf_info = l.get_lat_lon()
