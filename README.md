@@ -10,13 +10,14 @@ At the moment my personal implementation updates carwings automatically only whe
 - Raspberry pi with emoncms image
 - ```pip install git+https://github.com/apreb/pycarwings2.git```
 - ```pip install paho-mqtt```
-- [TODO] Node-RED Flows to control Carwings
-
+- Grab the files in the exemples directory and place them on /home/pi 
+- copy the contents of "NODE-RED FLOWS" into node-red -> import -> clipboard
+- Check if any node needs attention and commit
 
 ## Using
 
-- Grab the files in the exemples directory and place them on /home/pi 
-- perform chmod +x carwings.py
+- enter raspberry pi /home/pi
+- perform ```chmod +x carwings.py```
 - change mqtt settings in the carwings.ini file
 - execute carwings.py
 
@@ -42,6 +43,8 @@ usage:
    - driveanalysis          - Request driveanalysis
 root@emonpi(ro):pi# 
 ```
+
+- goto Node-RED URL: http://localhost:1880/ui and provide carwings credentials in the settings
 
 
 
